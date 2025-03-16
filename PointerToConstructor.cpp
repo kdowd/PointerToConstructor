@@ -15,6 +15,10 @@ public:
 		cout << "Foo is alive " << this << "\n";
 	}
 
+	Foo(const Foo& a) {
+		cout << "FOO is more alive " << this << "\n";
+	}
+
 	~Foo() {
 		cout << "Foo is new dead " << this << "\n";
 	}
@@ -65,6 +69,7 @@ public:
 
 void doAction() {
 	Foo* pFoo = new Foo();
+
 	Bar bar = Bar(pFoo); // update Foo member variable here
 	Baz baz = Baz(pFoo);
 }
@@ -72,6 +77,6 @@ void doAction() {
 
 int main() {
 	doAction();
-	// Is Foo dead ?
+	// Is Foo dead
 	cin.get();
 }
